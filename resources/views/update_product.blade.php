@@ -101,7 +101,7 @@
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom12">Description</label>
                             <div class="input-group">
-                                <textarea rows="5" id="validationCustom12" class="form-control" placeholder="Message" name="description" value="{{$p->description}}" required></textarea>
+                                <textarea rows="5" id="validationCustom12" class="form-control" placeholder="Message" name="description" value="{{$p->description}}"></textarea>
                                 <div class="invalid-feedback">
                                     Please provide a message.
                                 </div>
