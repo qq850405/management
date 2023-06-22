@@ -37,7 +37,6 @@
                         </div>
                         <div class="send-message text-center">
                             <button type="submit" class="btn btn-default">login</button>
-                            <input type="button" class="btn btn-info" onclick="location.href='/register';" value="register" />
                         </div>
                     </form>
                 </div>

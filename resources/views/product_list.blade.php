@@ -66,21 +66,39 @@
                 <table class="table table-hover thead-primary">
                     <thead>
                     <tr>
-                        <th scope="col">Order ID</th>
-                        <th scope="col">Customer Name</th>
-                        <th scope="col">Order Phone</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Order Time</th>
+                        <th scope="col">No.</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Inventory</th>
+                        <th scope="col">Online Ordering</th>
+                        <th scope="col">Photo</th>
                     </tr>
                     </thead>
+                    <tbody>
+                    @foreach($menu as $m)
+                    <tr>
+                        <td>{{$m->id}}</td>
+                        <td>{{$m->category}}</td>
+                        <td><a href="/product/update?id={{$m->id}}">{{$m->name}}</a></td>
+                        <td>{{$m->price}}</td>
+                        <td>{{$m->inventory}}</td>
+                        <td>{{$m->online_ordering}}</td>
+                        <td class="product_photo"><img src="{{asset(("images/".($m->photo ?? 'black.jpg')))}}" alt=""></td>
+                    </tr>
+                    @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-
 </main>
+<style>
+    .product_photo{
+        width: 100px;
+        height: 100px;
+    }
+</style>
 <!-- SCRIPTS -->
 <!-- Global Required Scripts Start -->
 <script src="{{asset("/assets/js/jquery-3.5.0.min.js")}}"></script>

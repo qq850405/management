@@ -6,7 +6,7 @@
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
         <a class="pl-0 ml-0 text-center" href="/">
-            <img src="https://via.placeholder.com/216x62" alt="logo">
+            <img src="{{asset('/images/logo.png')}}" alt="logo">
         </a>
     </div>
     <!-- Navigation -->

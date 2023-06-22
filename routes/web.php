@@ -39,6 +39,8 @@ Route::get('/order/update', [SellerController::class, 'updateOrder']);
 Route::get('/product/add', [ProductController::class, 'addProduct']);
 Route::post('/product/add', [ProductController::class, 'addProductAction']);
 Route::get('/product/list', [ProductController::class, 'showProductList']);
+Route::get('/product/update', [ProductController::class, 'showProductUpdate']);
+Route::post('/product/update', [ProductController::class, 'productUpdateAction']);
 
 Route::group([
     'middleware' => 'auth',

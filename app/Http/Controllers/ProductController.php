@@ -17,16 +17,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-            $products = new Product();
-            $category = $products->getProductCategory(1);
-            $menu = $products->getProduct();
-        return view('menu',compact('category','menu'));
+        $products = new Product();
+        $category = $products->getProductCategory(1);
+        $menu = $products->getProduct();
+        return view('menu', compact('category', 'menu'));
     }
 
-    public function shop(){
+    public function shop()
+    {
         $products = new Product();
         $menu = $products->getProductByPeriod();
-        return view('shop',compact('menu'));
+        return view('shop', compact('menu'));
     }
 
 
@@ -132,13 +133,15 @@ class ProductController extends Controller
         }
     }
 
-    public function addProduct(){
+    public function addProduct()
+    {
 //        $user = new User();
 //        $seller = $user->getSeller();
         return view('add_product');
     }
 
-    public function addProductAction(Request $request){
+    public function addProductAction(Request $request)
+    {
         try {
             $data = $request->validate([
                 'name' => ['required', 'string', 'max:200'],
@@ -155,7 +158,6 @@ class ProductController extends Controller
             dd($e);
             return response()->json(['status' => 'The given data was invalid.']);
         }
-
         $product = new Product();
         $product->name = $data['name'];
         $product->description = $data['description'];
@@ -166,17 +168,87 @@ class ProductController extends Controller
         $product->category = $data['category'];
         $product->recommendation = $data['recommend'] ?? "Off";
         $product->online_ordering = $data['online_ordering'] ?? "Off";
-        $imageName = time().'.'.$request->photo->extension();
-        $request->photo->move(public_path('images'), $imageName);
-        $product->photo = $imageName;
+
+
+        if ($request->photo != null) {
+            $imageName = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('images'), $imageName);
+            $product->photo = $imageName;
+        }
         $product->save();
+
         return redirect()->back();
 
     }
 
-    public function showProductList(){
+    public function showProductList()
+    {
         $products = new Product();
         $menu = $products->getProduct();
-        return view('product_list',compact('menu'));
+        return view('product_list', compact('menu'));
+    }
+
+    public function productUpdateAction(Request $request)
+    {
+        try {
+            $data = $request->validate([
+                'id' => ['required', 'integer', 'min:0'],
+                'name' => ['required', 'string', 'max:200'],
+                'description' => ['required', 'string', 'max:255'],
+                'category' => ['required', 'string', 'max:10'],
+                'inventory' => ['required', 'integer', 'min:0'],
+                'price' => ['required', 'numeric', 'min:0'],
+                'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
+                'recommend' => 'string',
+                'online_ordering' => 'string',
+            ]);
+        } catch (ValidationException $e) {
+            dd($request);
+            return response()->json(['status' => 'The given data was invalid.']);
+        }
+
+
+
+
+        $product = new Product();
+        $product->query()
+            ->where('id', $data['id'])
+            ->update([
+                'name' => $data['name'],
+                'description' => $data['description'],
+                'inventory' => $data['inventory'],
+                'price' => $data['price'],
+                'status' => 'on',
+                'seller_id' => 1,
+                'category' => $data['category'],
+                'recommendation' => $data['recommend'] ?? "Off",
+                'online_ordering' => $data['online_ordering'] ?? "Off",
+
+            ]);
+
+        if ($request->hasFile('photo')) {
+            $imageName = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('images'), $imageName);
+            $product->query()
+                ->where('id', $data['id'])
+                ->update([
+                    'photo' => $imageName,
+                ]);
+        }
+
+        return redirect()->back();
+
+    }
+
+    public function showProductUpdate(Request $request)
+    {
+
+        $data = $request->validate([
+            'id' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $product = new Product();
+        $p = $product->getProductById($data['id']);
+        return view('update_product', compact('p'));
     }
 }

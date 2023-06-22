@@ -64,4 +64,9 @@ class Product extends Model
 //            ->whereBetween('period', [$start, $end])
             ->get();
     }
+
+    public function getProductById($id){
+        return $this->query()->find($id);
+    }
+
 }

@@ -1161,7 +1161,7 @@ ul.ms-activity-log > li:hover .icon{
   visibility: visible;
   transform: scale(1);
 }
-.ms-recent-post img{
+.ms-recent-post{
   border-radius: 3px;
 }
 .ms-recent-post h6{
@@ -1349,7 +1349,7 @@ ul.ms-activity-log > li:hover .icon{
 .ms-note-members li:first-child{
   margin-left: 0;
 }
-.ms-note-members li img{
+.ms-note-members li{
   border-radius: 50%;
   cursor: pointer;
 }
@@ -2983,11 +2983,11 @@ background-color: #d9534f;
 .ms-card-footer{
   border-top: 1px solid rgba(0,0,0,0.1);
 }
-.ms-card .ms-card-img img{
+.ms-card .ms-card-img {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
-.ms-card .ms-card-body + .ms-card-img img{
+.ms-card .ms-card-body + .ms-card-img{
   border-radius: 0;
 }
 .ms-card .ms-card-body > .media{
@@ -4491,7 +4491,7 @@ border: 0;
   font-size: 20px;
   margin-right:25px;
 }
-.ms-list-item.media img{
+.ms-list-item.media{
   width: 40px;
   margin-right: 1rem;
 }
@@ -5556,7 +5556,7 @@ li .ms-count{
   background-image: linear-gradient(to top, rgba(0,0,0,.4), rgba(255,255,255,0));
   z-index: 1;
 }
-.ms-portfolio img,
+.ms-portfolio,
 .ms-portfolio .card{
   border-radius: 10px;
 }
