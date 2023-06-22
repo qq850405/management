@@ -67,19 +67,19 @@ class UserController extends Controller
 //            ]);
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)  && User::query()->where('email', $request->get('email'))->first()->privilege == 'admin') {
             // Authentication passed...
-            return redirect()->intended('/cart');
+            return redirect()->intended('/');
         }
         return redirect()->route('login');
 //        dd(app()->handle($authRequest));
 
     }
 
-    public function logout(Request $request): JsonResponse
+    public function logout(Request $request): \Illuminate\Http\RedirectResponse
     {
 
-        $authToken = Auth::user()->getAuthToken()->id;
+        $authToken = Auth::user()->id;
 //        $request->user()->token()->revoke();
 //         $accessToken = Auth::user()->token();
         DB::table('oauth_access_tokens')
@@ -87,6 +87,6 @@ class UserController extends Controller
             ->update([
                 'revoked' => true
             ]);
-        return response()->json(['status' => 'success']);
+        return redirect()->route('login');
     }
 }
