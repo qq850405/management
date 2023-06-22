@@ -12,9 +12,7 @@
         <span class="ms-toggler-bar bg-primary"></span>
     </div>
     <div class="logo-sn logo-sm ms-d-block-sm">
-        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="../../index.html">
-            <img src="https://via.placeholder.com/84x41" alt="logo">
-        </a>
+
     </div>
     <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
         <li class="ms-nav-item ms-search-form pb-0 py-0">
@@ -60,7 +58,7 @@
     <div class="col-xl-12 col-md-12">
         <div class="ms-panel ms-panel-fh">
             <div class="ms-panel-header">
-                <h6>Add Product Form</h6>
+                <h6>Update Product Form</h6>
             </div>
             <div class="ms-panel-body">
                 <form enctype="multipart/form-data" class="needs-validation clearfix" method="post" action="/product/update">
@@ -85,7 +83,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom24">Inventory</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationCustom24" placeholder="01" name="inventory" value="{{$p->inventory}}" required>
+                                <input type="number" step="0.1" class="form-control" id="validationCustom24" placeholder="01" name="inventory" value="{{$p->inventory}}" required>
                                 <div class="invalid-feedback">
                                     Quantity
                                 </div>
@@ -94,7 +92,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom25">Price</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationCustom25" placeholder="10" name="price" value="{{$p->price}}" required>
+                                <input type="number" step="0.1" class="form-control" id="validationCustom25" placeholder="10" name="price" value="{{$p->price}}" required>
                                 <div class="invalid-feedback">
                                     Price
                                 </div>
@@ -135,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary d-block" type="submit">Add Product</button>
+                    <button class="btn btn-primary d-block" type="submit">Update Product</button>
                 </form>
 
             </div>

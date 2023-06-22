@@ -12,9 +12,7 @@
         <span class="ms-toggler-bar bg-primary"></span>
     </div>
     <div class="logo-sn logo-sm ms-d-block-sm">
-        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="../../index.html">
-            <img src="https://via.placeholder.com/84x41" alt="logo">
-        </a>
+
     </div>
     <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
         <li class="ms-nav-item ms-search-form pb-0 py-0">
@@ -86,7 +84,7 @@
                         <td>{{$m->inventory}}</td>
                         <td>{{$m->online_ordering}}</td>
                         <td class="product_photo"><img src="{{asset(("images/".($m->photo ?? 'black.jpg')))}}" alt=""></td>
-                        <td><a href="/product/delete?id={{$m->id}}"><span id="boot-icon" class="bi bi-trash" style="font-size:10rem"></span></a></td>
+                        <td><a href="/product/delete?id={{$m->id}}">X</a></td>
                     </tr>
                     @endforeach
                     </tbody>
