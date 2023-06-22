@@ -203,7 +203,7 @@ class ProductController extends Controller
                 'online_ordering' => 'string',
             ]);
         } catch (ValidationException $e) {
-            dd($request);
+            dd($e);
             return response()->json(['status' => 'The given data was invalid.']);
         }
 
