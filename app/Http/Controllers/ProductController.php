@@ -146,7 +146,7 @@ class ProductController extends Controller
             $data = $request->validate([
                 'name' => ['required', 'string', 'max:200'],
                 'description' => ['nullable'],
-                'category' => ['required', 'string', 'max:10'],
+                'category' => ['required', 'string'],
                 'inventory' => [ 'integer', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
@@ -195,7 +195,7 @@ class ProductController extends Controller
                 'id' => ['required', 'integer', 'min:0'],
                 'name' => ['required', 'string', 'max:200'],
                 'description' => ['nullable'],
-                'category' => ['required', 'string', 'max:10'],
+                'category' => ['required', 'string'],
                 'inventory' => ['required', 'integer', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
