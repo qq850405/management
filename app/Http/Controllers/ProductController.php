@@ -131,4 +131,52 @@ class ProductController extends Controller
             return response()->json(['status' => 'delete failed']);
         }
     }
+
+    public function addProduct(){
+//        $user = new User();
+//        $seller = $user->getSeller();
+        return view('add_product');
+    }
+
+    public function addProductAction(Request $request){
+        try {
+            $data = $request->validate([
+                'name' => ['required', 'string', 'max:200'],
+                'description' => ['required', 'string', 'max:255'],
+                'category' => ['required', 'string', 'max:10'],
+                'inventory' => ['required', 'integer', 'min:0'],
+                'price' => ['required', 'numeric', 'min:0'],
+                'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
+                'recommend' => 'string',
+                'online_ordering' => 'string',
+            ]);
+        } catch (ValidationException $e) {
+
+            dd($e);
+            return response()->json(['status' => 'The given data was invalid.']);
+        }
+
+        $product = new Product();
+        $product->name = $data['name'];
+        $product->description = $data['description'];
+        $product->inventory = $data['inventory'];
+        $product->price = $data['price'];
+        $product->status = 'on';
+        $product->seller_id = 1;
+        $product->category = $data['category'];
+        $product->recommendation = $data['recommend'] ?? "Off";
+        $product->online_ordering = $data['online_ordering'] ?? "Off";
+        $imageName = time().'.'.$request->photo->extension();
+        $request->photo->move(public_path('images'), $imageName);
+        $product->photo = $imageName;
+        $product->save();
+        return redirect()->back();
+
+    }
+
+    public function showProductList(){
+        $products = new Product();
+        $menu = $products->getProduct();
+        return view('product_list',compact('menu'));
+    }
 }

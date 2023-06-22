@@ -11,14 +11,26 @@ class SellerController extends Controller
         $order = new Order();
         return $order->getSellerOrder()->get();
     }
-    public function showOrderDetail($order_id){
+
+
+    public function showOrderDetail(Request $request){
+        $data = $request->validate([
+            'order_id' => ['required', 'integer'],
+        ]);
         $order = new Order();
-        return $order->getSellerOrderDetail($order_id);
-    }
-    public function deliver(){
+        $detail = $order->getSellerOrderDetail($data['order_id']);
+        return view('order',compact('detail'));
 
     }
-    public function cancelOrder(){
 
+    public function updateOrder(Request $request){
+        $data = $request->validate([
+            'order_id' => ['required', 'integer'],
+            'status' => ['required', 'string', 'max:10'],
+        ]);
+        $order = Order::query()->find($data['order_id']);
+        $order->status = $data['status'];
+        $order->save();
+        return redirect()->back();
     }
 }

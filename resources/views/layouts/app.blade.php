@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <title>Restaurant</title>
-
 </head>
 <body>
 

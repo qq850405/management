@@ -1,324 +1,209 @@
 <!DOCTYPE html>
-<html lang="zxx">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Restaurant</title>
-</head>
-@include('layouts.header')
+<html lang="en">
+
+
+@include('layouts.nav')
 <!-- Restaurant Section Start -->
-<div class="restaurant-block padding-top-120 padding-bottom-120 section-bg-white section-block">
-    <div class="container">
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+<!-- Preloader -->
+<div id="preloader-wrap">
+    <div class="spinner spinner-8">
+        <div class="ms-circle1 ms-child"></div>
+        <div class="ms-circle2 ms-child"></div>
+        <div class="ms-circle3 ms-child"></div>
+        <div class="ms-circle4 ms-child"></div>
+        <div class="ms-circle5 ms-child"></div>
+        <div class="ms-circle6 ms-child"></div>
+        <div class="ms-circle7 ms-child"></div>
+        <div class="ms-circle8 ms-child"></div>
+        <div class="ms-circle9 ms-child"></div>
+        <div class="ms-circle10 ms-child"></div>
+        <div class="ms-circle11 ms-child"></div>
+        <div class="ms-circle12 ms-child"></div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<main class="body-content">
+    <!-- Navigation Bar -->
+    <nav class="navbar ms-navbar">
+        <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
+            <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+        </div>
+        <div class="logo-sn logo-sm ms-d-block-sm">
+            <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="../../index.html">
+                <img src="https://via.placeholder.com/84x41" alt="logo">
+            </a>
+        </div>
+        <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
+            <li class="ms-nav-item ms-search-form pb-0 py-0">
+                <form class="ms-form" method="post">
+                    <div class="ms-form-group my-0 mb-0 has-icon fs-14">
+                        <input type="search" class="ms-form-input" name="search" placeholder="Search here..." value=""> <i class="flaticon-search text-disabled"></i>
+                    </div>
+                </form>
+            </li>
+            <li class="ms-nav-item dropdown"> <a href="#" class="text-disabled ms-has-notification" id="mailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-mail"></i></a>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="mailDropdown">
+                    <li class="dropdown-menu-header">
+                        <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Mail</span></h6><span class="badge badge-pill badge-success">3 New</span>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li class="ms-scrollable ms-dropdown-list">
+                        <a class="media p-2" href="#">
+                            <div class="ms-chat-status ms-status-offline ms-chat-img mr-2 align-self-center">
+                                <img src="https://via.placeholder.com/270x270" class="ms-img-round" alt="people">
+                            </div>
+                            <div class="media-body"> <span>Hey man, looking forward to your new project.</span>
+                                <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 30 seconds ago</p>
+                            </div>
+                        </a>
+                        <a class="media p-2" href="#">
+                            <div class="ms-chat-status ms-status-online ms-chat-img mr-2 align-self-center">
+                                <img src="https://via.placeholder.com/270x270" class="ms-img-round" alt="people">
+                            </div>
+                            <div class="media-body"> <span>Dear John, I was told you bought Costic! Send me your feedback</span>
+                                <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 28 minutes ago</p>
+                            </div>
+                        </a>
+                        <a class="media p-2" href="#">
+                            <div class="ms-chat-status ms-status-offline ms-chat-img mr-2 align-self-center">
+                                <img src="https://via.placeholder.com/270x270" class="ms-img-round" alt="people">
+                            </div>
+                            <div class="media-body"> <span>How many people are we inviting to the dashboard?</span>
+                                <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 6 hours ago</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-menu-footer text-center"> <a href="pages/apps/email.html">Go to Inbox</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="ms-nav-item dropdown"> <a href="#" class="text-disabled ms-has-notification" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-bell"></i></a>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationDropdown">
+                    <li class="dropdown-menu-header">
+                        <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Notifications</span></h6><span class="badge badge-pill badge-info">4 New</span>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li class="ms-scrollable ms-dropdown-list">
+                        <a class="media p-2" href="#">
+                            <div class="media-body"> <span>12 ways to improve your crypto dashboard</span>
+                                <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 30 seconds ago</p>
+                            </div>
+                        </a>
+                        <a class="media p-2" href="#">
+                            <div class="media-body"> <span>You have newly registered users</span>
+                                <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 45 minutes ago</p>
+                            </div>
+                        </a>
+                        <a class="media p-2" href="#">
+                            <div class="media-body"> <span>Your account was logged in from an unauthorized IP</span>
+                                <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 2 hours ago</p>
+                            </div>
+                        </a>
+                        <a class="media p-2" href="#">
+                            <div class="media-body"> <span>An application form has been submitted</span>
+                                <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 1 day ago</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-menu-footer text-center"> <a href="#">View all Notifications</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="ms-nav-item ms-nav-user dropdown">
+                <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="ms-user-img ms-img-round float-right" src="https://via.placeholder.com/270x270" alt="people">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
+                    <li class="dropdown-menu-header">
+                        <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Welcome, Anny Farisha</span></h6>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li class="ms-dropdown-list">
+                        <a class="media fs-14 p-2" href="pages/prebuilt-pages/user-profile.html"> <span><i class="flaticon-user mr-2"></i> Profile</span>
+                        </a>
+                        <a class="media fs-14 p-2" href="pages/apps/email.html"> <span><i class="flaticon-mail mr-2"></i> Inbox</span> <span class="badge badge-pill badge-info">3</span>
+                        </a>
+                        <a class="media fs-14 p-2" href="pages/prebuilt-pages/user-profile.html"> <span><i class="flaticon-gear mr-2"></i> Account Settings</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-menu-footer">
+                        <a class="media fs-14 p-2" href="pages/prebuilt-pages/lock-screen.html"> <span><i class="flaticon-security mr-2"></i> Lock</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-menu-footer">
+                        <a class="media fs-14 p-2" href="pages/prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options"> <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+        </div>
+    </nav>
+    <div class="ms-content-wrapper">
         <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="element-block">
-                    <div class="min-height-550">
-                        <div class="multilayers-item margin-top-80 position-relative">
-                            <div class="image-item">
-                                <img class="img-responsive" src="images/index1.jpg" alt="">
-                            </div>
+            <div class="col-md-12">
+                <h1 class="db-header-title">Welcome </h1>
+            </div>
+            <div class="col-12">
+                <div class="ms-panel">
+                    <div class="ms-panel-header">
+                        <h6>Recent Orders</h6>
+                    </div>
+                    <div class="ms-panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover thead-primary">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Order Phone</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Order Time</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($orders as $order)
+                                <tr>
+
+                                    <th scope="row">{{$order->id}}</th>
+                                    <td><a href="/order/detail?order_id={{$order->id}}">{{$order->billing_name}}</a></td>
+                                    <td>{{$order->billing_phone}}</td>
+                                    @if($order->status == null)
+                                    <td><span class="badge badge-primary">{{$order->status ?? "Ordered"}}</span></td>
+                                    @elseif($order->status == "preparing")
+                                    <td><span class="badge badge-success">{{$order->status ?? "Preparing"}}</span></td>
+                                    @elseif($order->status == "done")
+                                    <td><span class="badge badge-secondary">{{$order->status ?? "Done"}}</span></td>
+                                    @endif
+                                    <td>{{$order->created_at}}</td>
+                                    <td>${{$order->billing_total}}</td>
+
+                                </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="welcome-right padding-left-125">
-                    <div class="section-title">
-                        <h2>Welcome at</h2>
-                        <h3>Sampannee!</h3>
-                    </div>
-                    <h6 class="small-headline">“Experience authentic Thai cuisine in the heart of Dupont Circle, D.C. at our restaurant, where we serve visually stunning dishes that tantalize the taste buds. ”.</h6>
-                    <p>At Sampannee, we take great pride in our Thai heritage. Our culinary journey began in the royal Thai palace, where we honed our skills to serve the esteemed royal family. Today, we are excited to bring the rich flavors of Thai cuisine to the United States. Indulge in our delectable Thai dishes and savor the exotic drinks that will leave a lasting impression on your palate. Join us as we embark on this culinary adventure together!</p>
-                </div>
-            </div>
+
+
         </div>
     </div>
-</div>
-<!-- Restaurant Section End -->
-<!-- Restaurant - Menu Section Start -->
-<div id="dannys" class="restaurant-menu dark-bg-color min-height-720 position-relative">
-    <div class="menu-left-detail padding-top-150">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <div class="menu-inner-left padding-right-90">
-                        <div class="section-title">
-                            <h2>Restaurant</h2>
-                            <h3 class="white">menu</h3>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-6">
-                                <p class="gray">We are delighted to offer you the true essence of Thai cuisine, served with a touch of modern elegance. At our restaurant, you'll find a harmonious blend of authentic flavors and contemporary decor, creating a unique dining experience. </p>
-                            </div>
-                            <div class="col-sm-6 col-md-6">
-                                <p class="gray">Whether you're seeking a hearty brunch, happy hour delights, or an extensive dine-in menu, we have you covered. And if you prefer the comfort of your own home, we provide convenient online ordering and delivery services. Don't let your cravings for Thai food go unsatisfied!</p>
-                            </div>
-                        </div>
-                        <a href="menu–stretched.html" class="btn btn-secondary">what’s on the menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="menu-right-img"></div>
-</div>
-<!-- Restaurant - Menu Section End -->
+</main>
 
-<!-- Specialties Section Start -->
-<div class="specialties-section section-bg-white padding-top-120 padding-bottom-220 section-block">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="element-block">
-                    <div class="min-height-550">
-                        <div class="multilayers-item margin-minus-left-120 position-relative">
-                            <div class="image-item">
-                                <img class="img-responsive" src="images/index3.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="specialties-right padding-left-125 padding-top-65">
-                    <div class="section-title">
-                        <h2>Drink</h2>
-                        <h3>with us</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6">
-                            <p>Indulge in a delightful selection of beverages at Sampannee! Our extensive drink menu is designed to complement your dining experience perfectly. </p>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <p>Whether you're in the mood for a classic favorite, a special creation unique to Sampannee, or a refreshing mocktail, we have something to satisfy every palate.</p>
-                        </div>
-                    </div>
-                    <a href="menu–stretched.html" class="btn btn-primary">view all</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Specialties Section End -->
-
-
-<!-- Todays Specialties Start -->
-
-<!-- Menu List Start -->
-<div id="menulist" class="menu-list clearfix">
-    <div class="container">
-        <div class="row gutter-0">
-            <div class="col-sm-12 col-md-3">
-                <div class="menu-list-left">
-                    <div class="menu-list-title">
-                        <h4>restaurant</h4>
-                        <h2>menu</h2>
-                    </div>
-                    <ul>
-                        <li class="active"><a href="#menulist" class="scroll">all</a></li>
-                        <li><a href="#menulist" class="scroll">starters</a></li>
-                        <li><a href="#menulist" class="scroll">main</a></li>
-                        <li><a href="#menulist" class="scroll">DESSERT</a></li>
-                        <li><a href="#menulist" class="scroll">drinks</a></li>
-                        <li><a href="#menulist" class="scroll">daily menu</a></li>
-                        <li><a href="#menulist" class="scroll">chef’s specialty</a></li>
-                        <li><a href="#menulist" class="scroll">offers</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-9">
-                <div class="menu-list-right">
-                    <ul class="products-list">
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img1.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img2.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img3.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img4.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img5.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img6.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img7.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img8.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block fancy-pag">
-                            <div class="fancy-inner-block">
-                                <div class="pag-arrows">
-                                    <a href="full-shop-width.html">next <span class="arrow-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span><span class="arrow-left"><i class="fa fa-angle-left" aria-hidden="true"></i></span></a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Menu List End -->
-
-
-<!-- Reservations Start -->
-<div class="reservation-map clearfix">
-    <div class="row gutter-0">
-        <div class="col-sm-12 col-md-6">
-            <div class="reservation-block padding-right-155 padding-left-155 display-flex vertical-center">
-                <div class="reserv-image-block">
-                    <div class="reserv-image"></div>
-                    <div class="reserv-overlay"></div>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <div class="reservation-block padding-right-155 padding-left-155 display-flex vertical-center">
-                <div class="reservation-detail flx-align-self">
-                    <h3 class="black">reservations</h3>
-                    <p class="black">Planning a memorable celebration? Look no further! Our restaurant offers the perfect setting to commemorate your joyous occasion. Reserve your table today, and let us create an extraordinary dining experience filled with delectable dishes and warm hospitality.
-                        <a class="black" href="#">bookatable@restaurant.com</a></p>
-                    <a href="reservation-form.html" class="btn btn-secondary">ONLINE</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Reservations End -->
-
-
-<!-- Footer Start -->
-<footer class="footer padding-top-120 padding-bottom-100 clearfix">
-    <div class="container">
-        <!-- Footer Top Start -->
-        <div class="f-top clearfix">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                </div>
-
-                <div class="col-sm-12 col-md-2 col-lg-1">
-                    <div class="f-nav">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="menu–stretched.html">menu</a></li>
-                            <li><a href="reservation-form-and-content.html">Reservation</a></li>
-                            <li><a href="blog-main.html">blog</a></li>
-                            <li><a href="full-shop-width.html">Shop</a></li>
-                            <li><a href="contact-google-map.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="f-social-follower">
-                        <a class="btn btn-default" href="reservation-form.html" role="button">online reservation</a>
-                        <div class="f-follower">
-                            <h6>follow</h6>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-                </div>
-            </div>
-        </div>
-        <!-- Footer Top End -->
-
-        <!-- Footer Bottom Start -->
-        <div class="f-bottom clearfix">
-            <p>Supported by:
-                Unite Innovatech | sale@uniteinnovatech.com | 571-435-7647 All rights reserved.</p>
-        </div>
-        <!-- Footer Bottom End -->
-    </div>
-</footer>
-<!-- Footer End -->
+</body>
+@include('layouts.header')
 </html>

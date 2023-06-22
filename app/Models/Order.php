@@ -44,23 +44,43 @@ class Order extends Model
                 'billing_name_on_card',
                 'billing_total',
                 'payment_gateway',
-                'error'])
+                'error',
+                'orders.created_at',
+                'orders.status as status'])
             ->join('order_product','order_product.order_id','orders.id')
             ->join('products','products.id','order_product.product_id')
-            ->where('seller_id',Auth::id())
             ->latest('orders.created_at')
-            ->groupBy('orders.id');
+            ->groupBy('orders.id')
+            ->get();
 
     }
     public function getSellerOrderDetail($order_id)
     {
         return $this
             ->query()
+            ->select([
+                'orders.id',
+                'buyer_id',
+                'billing_email',
+                'billing_name',
+                'billing_address',
+                'billing_city',
+                'billing_phone',
+                'billing_name_on_card',
+                'billing_total',
+                'payment_gateway',
+                'error',
+                'orders.created_at',
+                'products.name as name',
+                'products.price as price',
+                'order_product.quantity as quantity',
+                'orders.created_at as created_at',
+                'orders.status as status'
+            ])
             ->join('order_product','order_product.order_id','orders.id')
             ->join('products','products.id','order_product.product_id')
-            ->where('seller_id',Auth::id())
             ->where('orders.id',$order_id)
-            ->latest('orders.created_at')
+            ->latest('created_at')
             ->get();
     }
 

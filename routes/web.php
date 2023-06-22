@@ -34,6 +34,11 @@ Route::get('/posts/post_id={post}', [PostController::class, 'show']);
 Route::get('/products/seller_id={user}', [ProductController::class, 'index']);
 Route::get('/products/product_id={product}', [ProductController::class, 'show']);
 
+Route::get('/order/detail', [SellerController::class, 'showOrderDetail']);
+Route::get('/order/update', [SellerController::class, 'updateOrder']);
+Route::get('/product/add', [ProductController::class, 'addProduct']);
+Route::post('/product/add', [ProductController::class, 'addProductAction']);
+Route::get('/product/list', [ProductController::class, 'showProductList']);
 
 Route::group([
     'middleware' => 'auth',

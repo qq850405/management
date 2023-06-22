@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,7 +12,10 @@ class indexController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index(){
-        return view('index');
+        $order = new Order();
+        $orders = $order->getSellerOrder();
+
+        return view('index', compact('orders'));
     }
     public function getCSRFToken(): \Illuminate\Http\JsonResponse
     {
