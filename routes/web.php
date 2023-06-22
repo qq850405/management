@@ -44,6 +44,7 @@ Route::group([
     Route::get('/product/list', [ProductController::class, 'showProductList']);
     Route::get('/product/update', [ProductController::class, 'showProductUpdate']);
     Route::post('/product/update', [ProductController::class, 'productUpdateAction']);
+    Route::get('/product/delete', [ProductController::class, 'productDelete']);
 
 
         Route::get('/logout', [UserController::class, 'logout']);

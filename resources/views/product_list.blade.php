@@ -73,6 +73,7 @@
                         <th scope="col">Inventory</th>
                         <th scope="col">Online Ordering</th>
                         <th scope="col">Photo</th>
+                        <th scope="col">Remove</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -85,6 +86,7 @@
                         <td>{{$m->inventory}}</td>
                         <td>{{$m->online_ordering}}</td>
                         <td class="product_photo"><img src="{{asset(("images/".($m->photo ?? 'black.jpg')))}}" alt=""></td>
+                        <td><a href="/product/delete?id={{$m->id}}"><span id="boot-icon" class="bi bi-trash" style="font-size:10rem"></span></a></td>
                     </tr>
                     @endforeach
                     </tbody>

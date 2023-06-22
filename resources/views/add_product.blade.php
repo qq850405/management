@@ -84,7 +84,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom24">Inventory</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationCustom24" placeholder="01" name="inventory" required>
+                                <input type="text" class="form-control" id="validationCustom24" placeholder="01" name="inventory"  value="9999999" required>
                                 <div class="invalid-feedback">
                                     Quantity
                                 </div>
@@ -102,7 +102,7 @@
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom12">Description</label>
                             <div class="input-group">
-                                <textarea rows="5" id="validationCustom12" class="form-control" placeholder="Message" name="description" required></textarea>
+                                <textarea rows="5" id="validationCustom12" class="form-control" placeholder="Message" name="description"></textarea>
                                 <div class="invalid-feedback">
                                     Please provide a message.
                                 </div>

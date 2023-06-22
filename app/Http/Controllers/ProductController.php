@@ -145,9 +145,9 @@ class ProductController extends Controller
         try {
             $data = $request->validate([
                 'name' => ['required', 'string', 'max:200'],
-                'description' => ['required', 'string', 'max:255'],
+                'description' => ['required', 'string'],
                 'category' => ['required', 'string', 'max:10'],
-                'inventory' => ['required', 'integer', 'min:0'],
+                'inventory' => [ 'integer', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
                 'recommend' => 'string',
@@ -250,5 +250,19 @@ class ProductController extends Controller
         $product = new Product();
         $p = $product->getProductById($data['id']);
         return view('update_product', compact('p'));
+    }
+
+    public function productDelete(Request $request)
+    {
+        $data = $request->validate([
+            'id' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $product = new Product();
+        $product->query()
+            ->where('id', $data['id'])
+            ->delete();
+
+        return redirect()->back();
     }
 }
