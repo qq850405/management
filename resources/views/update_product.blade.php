@@ -118,7 +118,7 @@
                             <p class="medium">Recommend</p>
                             <div>
                                 <label class="ms-switch">
-                                    <input type="checkbox" name = "recommend"  {{($p->recommendation == 'on') ? 'checked' : ''}}">
+                                    <input type="checkbox" name = "recommend"  {{($p->recommendation == 'on') ? 'checked' : ''}}>
                                     <span class="ms-switch-slider round"></span>
                                 </label>
                             </div>
