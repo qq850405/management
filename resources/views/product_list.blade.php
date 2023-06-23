@@ -84,7 +84,7 @@
                         <td>{{$m->inventory}}</td>
                         <td>{{$m->online_ordering}}</td>
                         <td class="product_photo"><img src="{{asset(("images/".($m->photo ?? 'black.jpg')))}}" alt=""></td>
-                        <td><a href="/product/delete?id={{$m->id}}"><i class="bi bi-trash"></i></a></td>
+                        <td><a href="/product/delete?id={{$m->id}}">X</a></td>
                     </tr>
                     @endforeach
                     </tbody>
