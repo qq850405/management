@@ -83,7 +83,7 @@
                         <td>{{$m->price}}</td>
                         <td>{{$m->inventory}}</td>
                         <td>{{$m->online_ordering}}</td>
-                        <td class="product_photo"><img src="{{asset(("../admin.sampannee.com/public/images/".($m->photo ?? 'black.jpg')))}}" alt=""></td>
+                        <td class="product_photo"><img src="{{asset(("images/".($m->photo ?? 'black.jpg')))}}" alt=""></td>
                         <td><a href="/product/delete?id={{$m->id}}">X</a></td>
                     </tr>
                     @endforeach
