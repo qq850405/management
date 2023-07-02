@@ -290,4 +290,15 @@ class ProductController extends Controller
 
         return redirect()->back();
     }
+
+    public function deleteProductPhoto(Request $request)
+    {
+        $data = $request->validate([
+            'id' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $product = new Product();
+        $product->deletePhoto($data['id']);
+        return redirect()->back();
+    }
 }

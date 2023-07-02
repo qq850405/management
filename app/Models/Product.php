@@ -79,4 +79,9 @@ class Product extends Model
             ->where('category',$category)
             ->first();
     }
+
+    public function deletePhoto($id): bool|int
+    {
+        return $this->query()->where('id',$id)->update(['photo'=>null]);
+    }
 }

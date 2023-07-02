@@ -131,7 +131,9 @@
                                 <input type="file" name="photo" class="custom-file-input" accept="image/png, image/jpeg">
                                 <label class="custom-file-label" for="validatedCustomFile">Upload Images...</label></div>
                         </div>
-
+                        <div class="ms-panel-header new">
+                        <a href="/product/delete_photo?id={{$p->id}}" class="btn btn-dark">Delete Photo</a>
+                        </div>
                         <div class="ms-panel-header new">
                             <p class="medium">Recommend</p>
                             <div>
