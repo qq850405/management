@@ -152,22 +152,33 @@ class ProductController extends Controller
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
                 'recommend' => 'string',
                 'online_ordering' => 'string',
+                'menu_order' => [ 'integer', 'min:0']
+
             ]);
         } catch (ValidationException $e) {
 
             dd($e);
             return response()->json(['status' => 'The given data was invalid.']);
         }
+
         $product = new Product();
+        $sort_data  = $product->checkProductCategoryExist(1,$data['category']);
+        if($sort_data){
+            $product->category = $data['category'];
+            $product->category_sort = $sort_data->category_sort;
+        }else{
+            $product->category = $data['category'];
+            $product->category_sort = 999;
+        }
         $product->name = $data['name'];
         $product->description = $data['description'];
         $product->inventory = $data['inventory'];
         $product->price = $data['price'];
         $product->status = 'on';
         $product->seller_id = 1;
-        $product->category = $data['category'];
         $product->recommendation = $data['recommend'] ?? "Off";
         $product->online_ordering = $data['online_ordering'] ?? "Off";
+
 
 
         if ($request->photo != null) {
@@ -201,13 +212,27 @@ class ProductController extends Controller
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
                 'recommend' => 'string',
                 'online_ordering' => 'string',
+                'category_sort' => ['required', 'integer', 'min:0'],
+                'menu_sort' => ['required', 'integer', 'min:0'],
             ]);
         } catch (ValidationException $e) {
             dd($e);
             return response()->json(['status' => 'The given data was invalid.']);
         }
 
+        $sort = new Product();
 
+        $sort->query()
+            ->where('category', $data['category'])
+            ->update([
+                'category_sort' => $data['category_sort'],
+            ]);
+
+        $sort->query()
+            ->where('id', $data['id'])
+            ->update([
+                'menu_sort' => $data['menu_sort'],
+            ]);
 
 
         $product = new Product();

@@ -19,7 +19,8 @@ class Product extends Model
         'status',
         'inventory',
         'seller_id',
-        'price'
+        'price',
+        'category_sort'
     ];
 
     public function seller(): BelongsTo
@@ -47,7 +48,10 @@ class Product extends Model
     }
 
     public function getProduct(){
-        return $this->query()->get();
+        return $this->query()
+            ->orderBy('category_sort')
+            ->orderBy('menu_sort')
+            ->get();
     }
 
 
@@ -69,4 +73,10 @@ class Product extends Model
         return $this->query()->find($id);
     }
 
+    public function checkProductCategoryExist($seller_id, $category){
+        return $this->query()
+            ->where('seller_id',$seller_id)
+            ->where('category',$category)
+            ->first();
+    }
 }

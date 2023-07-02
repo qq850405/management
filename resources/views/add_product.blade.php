@@ -97,6 +97,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom25">Menu Sort</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="validationCustom25" placeholder="999" name="menu_sort" required>
+                                <div class="invalid-feedback">
+                                    Menu Sort
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom12">Description</label>
                             <div class="input-group">
