@@ -31,10 +31,10 @@
         </li>
         <!-- product end -->
         <!-- orders -->
-        <li class="menu-item">
-            <a href="order/detail"> <span><i class="fas fa-clipboard-list fs-16"></i>Orders</span>
-            </a>
-        </li>
+{{--        <li class="menu-item">--}}
+{{--            <a href="order/detail"> <span><i class="fas fa-clipboard-list fs-16"></i>Orders</span>--}}
+{{--            </a>--}}
+{{--        </li>--}}
 
     </ul>
 </aside>

@@ -107,6 +107,12 @@
                                     <td>${{$d->price}}</td>
                                     <td>${{$d->quantity * $d->price}}</td>
                                 </tr>
+                                    @if($d->comment)
+                                        <tr>
+                                            <td colspan="1" class="text-center">Favor</td>
+                                            <td colspan="3" class="text-center">{{$d->comment}}</td>
+                                        </tr>
+                                        @endif
                                 @endforeach
                                 </tbody>
                                 <tfoot>

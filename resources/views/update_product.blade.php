@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label for="validationCustom25">Price</label>
                             <div class="input-group">
                                 <input type="number" step="0.1" class="form-control" id="validationCustom25" placeholder="10" name="price" value="{{$p->price}}" required>
@@ -114,6 +114,16 @@
                                 <div class="invalid-feedback">
                                     Menu Sort
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="ms-panel-header new">
+                            <p class="medium">add to</p>
+                            <div>
+                                <label class="ms-switch">
+                                    <input type="checkbox" name = "add_to"  {{($p->add_to == 'on') ? 'checked' : ''}}>
+                                    <span class="ms-switch-slider round"></span>
+                                </label>
                             </div>
                         </div>
                         <div class="col-md-12 mb-3">

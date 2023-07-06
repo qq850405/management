@@ -211,6 +211,7 @@ class ProductController extends Controller
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
                 'recommend' => 'string',
+                'add_to' => 'string',
                 'online_ordering' => 'string',
                 'category_sort' => ['required', 'integer', 'min:0'],
                 'menu_sort' => ['required', 'integer', 'min:0'],
@@ -248,6 +249,7 @@ class ProductController extends Controller
                 'category' => $data['category'],
                 'recommendation' => $data['recommend'] ?? "Off",
                 'online_ordering' => $data['online_ordering'] ?? "Off",
+                'add_to' => $data['add_to'] ?? "Off",
 
             ]);
 
