@@ -76,6 +76,7 @@ class Order extends Model
                 'order_product.quantity as quantity',
                 'orders.created_at as created_at',
                 'orders.status as status',
+                'orders.comment as ocomment',
                 'order_product.add_to as comment',
             ])
             ->join('order_product','order_product.order_id','orders.id')
