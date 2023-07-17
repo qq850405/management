@@ -303,4 +303,11 @@ class ProductController extends Controller
         $product->deletePhoto($data['id']);
         return redirect()->back();
     }
+
+    public function updateAllOnlineOrdering(Request $request)
+    {
+        $product = new Product();
+        $product->updateOnlineOrdering();
+        return redirect()->back();
+    }
 }

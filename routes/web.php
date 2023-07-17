@@ -43,6 +43,7 @@ Route::group([
     Route::post('/product/add', [ProductController::class, 'addProductAction']);
     Route::get('/product/list', [ProductController::class, 'showProductList']);
     Route::get('/product/update', [ProductController::class, 'showProductUpdate']);
+    Route::get('/product/onlineordering/update', [ProductController::class, 'updateAllOnlineOrdering']);
     Route::post('/product/update', [ProductController::class, 'productUpdateAction']);
     Route::get('/product/delete', [ProductController::class, 'productDelete']);
     Route::get('/product/delete_photo', [ProductController::class, 'deleteProductPhoto']);

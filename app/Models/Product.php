@@ -84,4 +84,9 @@ class Product extends Model
     {
         return $this->query()->where('id',$id)->update(['photo'=>null]);
     }
+
+    public function updateOnlineOrdering(){
+
+        return $this->query()->update(['online_ordering'=>'on']);
+    }
 }

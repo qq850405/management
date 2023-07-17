@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<style>
+    .product_photo{
+        width: 100px;
+        height: 100px;
+    }
+    .ms-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
 @include('layouts.nav')
 <!-- Restaurant Section Start -->
 <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
@@ -58,6 +68,7 @@
     <div class="ms-panel">
         <div class="ms-panel-header">
             <h6>Product List</h6>
+            <a href="/product/onlineordering/update" class="btn btn-success">Turn on All Online Ordering</a>
         </div>
         <div class="ms-panel-body">
             <div class="table-responsive">
@@ -93,12 +104,7 @@
         </div>
     </div>
 </main>
-<style>
-    .product_photo{
-        width: 100px;
-        height: 100px;
-    }
-</style>
+
 <!-- SCRIPTS -->
 <!-- Global Required Scripts Start -->
 <script src="{{asset("/assets/js/jquery-3.5.0.min.js")}}"></script>
