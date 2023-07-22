@@ -176,8 +176,8 @@ class ProductController extends Controller
         $product->price = $data['price'];
         $product->status = 'on';
         $product->seller_id = 1;
-        $product->recommendation = $data['recommend'] ?? "0";
-        $product->online_ordering = $data['online_ordering'] ?? "0";
+        $product->recommendation = $data['recommend'] == 'on' ? 1 : "0";
+        $product->online_ordering = $data['online_ordering'] == 'on' ? 1 : "0";
 
 
 
