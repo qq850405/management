@@ -121,7 +121,7 @@
                             <p class="medium">add to</p>
                             <div>
                                 <label class="ms-switch">
-                                    <input type="checkbox" name = "add_to"  {{($p->add_to == 'on') ? 'checked' : ''}}>
+                                    <input type="checkbox" name = "add_to"  {{($p->add_to == '1') ? 'checked' : ''}}>
                                     <span class="ms-switch-slider round"></span>
                                 </label>
                             </div>
@@ -148,7 +148,7 @@
                             <p class="medium">Recommend</p>
                             <div>
                                 <label class="ms-switch">
-                                    <input type="checkbox" name = "recommend"  {{($p->recommendation == 'on') ? 'checked' : ''}}>
+                                    <input type="checkbox" name = "recommend"  {{($p->recommendation == '1') ? 'checked' : ''}}>
                                     <span class="ms-switch-slider round"></span>
                                 </label>
                             </div>
@@ -157,7 +157,7 @@
                             <p class="medium">Online Ordering</p>
                             <div>
                                 <label class="ms-switch">
-                                    <input type="checkbox"  name = "online_ordering" {{($p->online_ordering == 'on') ? 'checked' : ''}}>
+                                    <input type="checkbox"  name = "online_ordering" {{($p->online_ordering == '1') ? 'checked' : ''}}>
                                     <span class="ms-switch-slider round"></span>
                                 </label>
                             </div>

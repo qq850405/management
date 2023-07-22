@@ -248,8 +248,8 @@ class ProductController extends Controller
                 'seller_id' => 1,
                 'category' => $data['category'],
                 'recommendation' => $data['recommend'] ?? "0",
-                'online_ordering' => $data['online_ordering'] ?? "Off",
-                'add_to' => $data['add_to'] ?? "Off",
+                'online_ordering' => $data['online_ordering'] ?? "0",
+                'add_to' => $data['add_to'] ?? "0",
 
             ]);
 
