@@ -150,8 +150,8 @@ class ProductController extends Controller
                 'inventory' => [ 'integer', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
-                'recommend' => 'string',
-                'online_ordering' => 'string',
+                'recommend' => ['string','default:0'],
+                'online_ordering' => ['string','default:0'],
                 'menu_order' => [ 'integer', 'min:0']
 
             ]);
@@ -210,9 +210,9 @@ class ProductController extends Controller
                 'inventory' => ['required', 'integer', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
-                'recommend' => 'string',
-                'add_to' => 'string',
-                'online_ordering' => 'string',
+                'recommend' => ['string','default:0'],
+                'add_to' => ['string','default:0'],
+                'online_ordering' => ['string', 'default:0'],
                 'category_sort' => ['required', 'integer', 'min:0'],
                 'menu_sort' => ['required', 'integer', 'min:0'],
             ]);
@@ -248,8 +248,8 @@ class ProductController extends Controller
                 'seller_id' => 1,
                 'category' => $data['category'],
                 'recommendation' => $data['recommend'] == 'on' ? 1 : "0",
-                'online_ordering' => $data['online_ordering']== 'on' ? 1 : "0",
-                'add_to' => $data['add_to'] ?? "0",
+                'online_ordering' => $data['online_ordering'] == 'on' ? 1 : "0",
+                'add_to' => $data['add_to'] == 'on' ? 1 : "0",
 
             ]);
 
