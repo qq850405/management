@@ -64,7 +64,7 @@ class Product extends Model
         return $this->query()
             ->where('status','on')
             ->where('deleted_at',null)
-            ->where('online_ordering','on')
+            ->where('online_ordering','1')
 //            ->whereBetween('period', [$start, $end])
             ->get();
     }
@@ -87,6 +87,6 @@ class Product extends Model
 
     public function updateOnlineOrdering(){
 
-        return $this->query()->update(['online_ordering'=>'on']);
+        return $this->query()->update(['online_ordering'=>'1']);
     }
 }
