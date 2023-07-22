@@ -247,8 +247,8 @@ class ProductController extends Controller
                 'status' => 'on',
                 'seller_id' => 1,
                 'category' => $data['category'],
-                'recommendation' => $data['recommend'] ?? "0",
-                'online_ordering' => $data['online_ordering'] ?? "0",
+                'recommendation' => $data['recommend'] == 'on' ? 1 : "0",
+                'online_ordering' => $data['online_ordering']== 'on' ? 1 : "0",
                 'add_to' => $data['add_to'] ?? "0",
 
             ]);
