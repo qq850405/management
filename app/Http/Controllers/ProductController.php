@@ -150,8 +150,8 @@ class ProductController extends Controller
                 'inventory' => [ 'integer', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
-                'recommend' => ['string','default:0'],
-                'online_ordering' => ['string','default:0'],
+                'recommend' => ['string'],
+                'online_ordering' => ['string'],
                 'menu_order' => [ 'integer', 'min:0']
 
             ]);
@@ -160,6 +160,9 @@ class ProductController extends Controller
             dd($e);
             return response()->json(['status' => 'The given data was invalid.']);
         }
+        $data['online_ordering'] = isset($data['online_ordering']);
+        $data['recommend'] = isset($data['recommend']);
+
 
         $product = new Product();
         $sort_data  = $product->checkProductCategoryExist(1,$data['category']);
@@ -210,9 +213,9 @@ class ProductController extends Controller
                 'inventory' => ['required', 'integer', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
                 'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
-                'recommend' => ['string','default:0'],
-                'add_to' => ['string','default:0'],
-                'online_ordering' => ['string', 'default:0'],
+                'recommend' => ['string'],
+                'add_to' => ['string'],
+                'online_ordering' => ['string'],
                 'category_sort' => ['required', 'integer', 'min:0'],
                 'menu_sort' => ['required', 'integer', 'min:0'],
             ]);
@@ -220,6 +223,9 @@ class ProductController extends Controller
             dd($e);
             return response()->json(['status' => 'The given data was invalid.']);
         }
+        $data['online_ordering'] = isset($data['online_ordering']);
+        $data['recommend'] = isset($data['recommend']);
+        $data['add_to'] = isset($data['add_to']);
 
         $sort = new Product();
 
