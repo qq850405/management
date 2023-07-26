@@ -81,7 +81,7 @@ class BuyerController extends Controller
             return response(['message' => 'Order created succeed.'], 200);
         } catch (Exception $e) {
             DB::rollBack();
-            return response(['message' => $e], 500);
+            dd(response(['message' => $e], 500));
         }
     }
 
