@@ -122,7 +122,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td  class="text-left">Note: {{$detail[0]->ocomment}}</td>
+                                    <td  class="text-left word-wrap-cell">Note: {{$detail[0]->ocomment}}</td>
                                     <td colspan="2">Total : </td>
                                     <td>${{$d->billing_total}}</td>
                                 </tr>
