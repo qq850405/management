@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+    .word-wrap-cell {
+        max-width: 200px; /* 设置最大宽度 */
+        word-wrap: break-word; /* 允许长单词换行 */
+    }
+</style>
 
 @include('layouts.nav')
 <!-- Restaurant Section Start -->
@@ -110,7 +115,7 @@
                                     @if($d->comment)
                                         <tr bgcolor="#f0ffff">
                                             <td colspan="1" class="text-left">Favor</td>
-                                            <td colspan="3" class="text-center">{{$d->comment}}</td>
+                                            <td colspan="3" class="text-center word-wrap-cell">{{$d->comment}}</td>
                                         </tr>
                                         @endif
                                 @endforeach
