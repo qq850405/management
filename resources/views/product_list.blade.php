@@ -95,7 +95,7 @@
                         <td>{{$m->inventory}}</td>
                         <td>{{$m->online_ordering}}</td>
                         <td class="product_photo"><img src="{{asset(("images/".($m->photo ?? 'black.jpg')))}}" alt=""></td>
-                        <td><a href="/product/delete?id={{$m->id}}">X</a></td>
+                        <td><a href="/product/delete?id={{$m->id}}" class="delete-confirm">X</a></td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -127,6 +127,31 @@
 
 <!-- Settings -->
 <script src="{{asset("/assets/js/settings.js")}}"></script>
+
+<script>
+    // 当文档加载完毕时
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有的删除确认链接
+        var deleteLinks = document.querySelectorAll('.delete-confirm');
+
+        // 为每个链接添加点击事件监听器
+        deleteLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                // 阻止链接的默认行为
+                event.preventDefault();
+                // 弹出确认框
+                var confirmResult = confirm('Are you sure you want to delete this item?');
+                // 如果用户点击“确定”，则继续执行链接的href属性
+                if (confirmResult) {
+                    window.location.href = this.href;
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 @include('layouts.header')
+
+
 </html>
