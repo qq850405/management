@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SystemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,4 +74,8 @@ Route::group([
         Route::get('/seller/sold/detail/{order}',[SellerController::class,'showOrderDetail']);
         Route::post('/seller/deliver',[SellerController::class,'deliver']);
         Route::post('/seller/cancel',[SellerController::class,'cancelOrder']);
+
+        Route::get('/system/poster',[SystemController::class,'showPoster']);
+        Route::post('/system/poster/update',[SystemController::class,'updatePoster']);
+        Route::get('/system/poster/delete',[SystemController::class,'deletePoster']);
 });

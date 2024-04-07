@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-            $table->text('recommendation', 10)->nullable()->change();
-            $table->longText('photo')->change();
-        });    }
+        Schema::create('posters', function (Blueprint $table) {
+            $table->id();
+            $table->string('filename');
+            $table->string('alt')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('posters');
     }
 };
