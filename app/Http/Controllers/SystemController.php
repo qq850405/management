@@ -80,7 +80,7 @@ class SystemController extends Controller
 
     public function showMainPhoto(){
 
-        $mainPhoto = (new \App\Models\MainPhoto())->get();
+        $mainPhoto = (new MainPhoto())->get();
 
 
         return view('main_photo', ['mainPhoto' => $mainPhoto]);
