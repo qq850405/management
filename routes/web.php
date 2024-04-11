@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login', [UserController::class, 'login'])->name('api.login');
 Route::group([
@@ -51,31 +52,35 @@ Route::group([
 
 
 
-        Route::get('/logout', [UserController::class, 'logout']);
+    Route::get('/logout', [UserController::class, 'logout']);
 
-        Route::post('/posts', [PostController::class, 'store']);
-        Route::post('/posts/{post}', [PostController::class, 'update']);
-        Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+    Route::post('/posts', [PostController::class, 'store']);
+    Route::post('/posts/{post}', [PostController::class, 'update']);
+    Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
-        Route::post('/products', [ProductController::class, 'store']);
-        Route::post('/products/{product}', [ProductController::class, 'update']);
-        Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::post('/products/{product}', [ProductController::class, 'update']);
+    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
 
-        Route::get('/cart',[CartController::class, 'showCart'])->name('cart.show');
-        Route::get('/cart/add',[CartController::class, 'addCart']);
-        Route::delete('/cart',[CartController::class, 'deleteCart']);
+    Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+    Route::get('/cart/add', [CartController::class, 'addCart']);
+    Route::delete('/cart', [CartController::class, 'deleteCart']);
 
-        Route::get('/buyer/purchase',[BuyerController::class,'showOrder']);
-        Route::get('/buyer/purchase/detail/{order}',[BuyerController::class,'showOrderDetail']);
-        Route::post('/buyer/buy',[BuyerController::class,'buyOrder']);
-        Route::post('/buyer/cancel',[BuyerController::class,'cancelOrder']);
+    Route::get('/buyer/purchase', [BuyerController::class, 'showOrder']);
+    Route::get('/buyer/purchase/detail/{order}', [BuyerController::class, 'showOrderDetail']);
+    Route::post('/buyer/buy', [BuyerController::class, 'buyOrder']);
+    Route::post('/buyer/cancel', [BuyerController::class, 'cancelOrder']);
 
-        Route::get('/seller/sold',[SellerController::class,'showOrder']);
-        Route::get('/seller/sold/detail/{order}',[SellerController::class,'showOrderDetail']);
-        Route::post('/seller/deliver',[SellerController::class,'deliver']);
-        Route::post('/seller/cancel',[SellerController::class,'cancelOrder']);
+    Route::get('/seller/sold', [SellerController::class, 'showOrder']);
+    Route::get('/seller/sold/detail/{order}', [SellerController::class, 'showOrderDetail']);
+    Route::post('/seller/deliver', [SellerController::class, 'deliver']);
+    Route::post('/seller/cancel', [SellerController::class, 'cancelOrder']);
 
-        Route::get('/system/poster',[SystemController::class,'showPoster']);
-        Route::post('/system/poster/update',[SystemController::class,'updatePoster']);
-        Route::get('/system/poster/delete',[SystemController::class,'deletePoster']);
+    Route::get('/system/poster', [SystemController::class, 'showPoster']);
+    Route::post('/system/poster/update', [SystemController::class, 'updatePoster']);
+    Route::get('/system/poster/delete', [SystemController::class, 'deletePoster']);
+
+    Route::get('/system/mainphoto', [SystemController::class, 'showMainPhoto']);
+    Route::post('/system/mainphoto/update', [SystemController::class, 'updateMainPhoto']);
+    Route::get('/system/mainphoto/delete', [SystemController::class, 'deleteMainPhoto']);
 });

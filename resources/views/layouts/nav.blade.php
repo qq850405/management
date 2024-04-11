@@ -43,8 +43,12 @@
             <ul id="system" class="collapse" aria-labelledby="system" data-parent="#side-nav-accordion">
                 <li> <a href="/system/poster">Poster</a>
                 </li>
+                 <li> <a href="/system/mainphoto">Main Photo</a>
+                </li>
 
             </ul>
+
+
         </li>
     </ul>
 </aside>
