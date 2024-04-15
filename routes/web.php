@@ -83,4 +83,8 @@ Route::group([
     Route::get('/system/mainphoto', [SystemController::class, 'showMainPhoto']);
     Route::post('/system/mainphoto/update', [SystemController::class, 'updateMainPhoto']);
     Route::get('/system/mainphoto/delete', [SystemController::class, 'deleteMainPhoto']);
+
+    
+    Route::post('/system/marquee/update', [SystemController::class, 'updateMarquee']);
+    // Route::get('/system/mainphoto/delete', [SystemController::class, 'deleteMainPhoto']);
 });

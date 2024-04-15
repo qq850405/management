@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Poster;
+use App\Models\Marquee;
 use App\Models\MainPhoto;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -15,29 +16,30 @@ class SystemController extends Controller
     //
 
 
-    public function showPoster(){
+    public function showPoster()
+    {
 
         $poster = (new Poster())->get();
 
 
         return view('poster', ['poster' => $poster]);
-
     }
 
 
-    public function updatePoster(Request $request){
-    
-        try{
-        $validatedData = $request->validate([
-            'fileInput' => 'required|file|image|max:10240', // max:10240 -> 10MB
-        ]);
-    }catch(Exception $e){
-        
+    public function updatePoster(Request $request)
+    {
 
-        dd($e);
-    }
+        try {
+            $validatedData = $request->validate([
+                'fileInput' => 'required|file|image|max:10240', // max:10240 -> 10MB
+            ]);
+        } catch (Exception $e) {
 
-     
+
+            dd($e);
+        }
+
+
 
         $file = $request->file('fileInput');
         $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
@@ -54,8 +56,9 @@ class SystemController extends Controller
     }
 
 
-    public function deletePoster(Request $request){
-        
+    public function deletePoster(Request $request)
+    {
+
         $validator = Validator::make($request->all(), [
             'id' => 'required',
         ]);
@@ -74,33 +77,33 @@ class SystemController extends Controller
         $poster->delete();
 
         return redirect('/system/MainPhoto')->with('success', 'Poster updated successfully');
-
     }
 
 
-    public function showMainPhoto(){
+    public function showMainPhoto()
+    {
 
         $mainPhoto = (new MainPhoto())->get();
+        $marquee = (new Marquee())->get();
 
-
-        return view('main_photo', ['mainPhoto' => $mainPhoto]);
-
+        return view('main_photo', ['mainPhoto' => $mainPhoto, 'marquee' => $marquee]);
     }
 
 
-    public function updateMainPhoto(Request $request){
-    
-        try{
-        $validatedData = $request->validate([
-            'fileInput' => 'required|file|image|max:10240', // max:10240 -> 10MB
-        ]);
-    }catch(Exception $e){
-        
+    public function updateMainPhoto(Request $request)
+    {
 
-        dd($e);
-    }
+        try {
+            $validatedData = $request->validate([
+                'fileInput' => 'required|file|image|max:10240', // max:10240 -> 10MB
+            ]);
+        } catch (Exception $e) {
 
-     
+
+            dd($e);
+        }
+
+
 
         $file = $request->file('fileInput');
         $filename = Str::random(20) . '.' . $file->getClientOriginalExtension();
@@ -117,8 +120,9 @@ class SystemController extends Controller
     }
 
 
-    public function deleteMainPhoto(Request $request){
-        
+    public function deleteMainPhoto(Request $request)
+    {
+
         $validator = Validator::make($request->all(), [
             'id' => 'required',
         ]);
@@ -137,6 +141,22 @@ class SystemController extends Controller
         $mainPhoto->delete();
 
         return redirect('/system/mainphoto')->with('success', 'Poster updated successfully');
+    }
 
+
+    public function showMarquee()
+    {
+
+        return redirect('/system/mainphoto')->with('success', 'Poster updated successfully');
+    }
+
+
+    public function updateMarquee(Request $request)
+    {
+        $marquee = new Marquee();
+        $marquee->where('id', 1)->update([
+            'text' => $request->input('text')
+        ]);
+        return redirect('/system/mainphoto')->with('success', 'Marquee updated successfully');
     }
 }

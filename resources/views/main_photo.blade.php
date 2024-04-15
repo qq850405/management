@@ -50,7 +50,18 @@
         text-decoration: none;
         cursor: pointer;
     }
+   .closeMarquee {
+        color: #666;
+        float: right;
+        font-size: 28px;
+    }
 
+    .closeMarquee:hover,
+    .closeMarquee:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
     .custom-file-upload {
         border: 1px solid #ccc;
         display: inline-block;
@@ -172,6 +183,7 @@
                             </ol>
                         </nav>
 
+
                         <div class="ms-panel">
                             <div class="ms-panel-header header-mini">
                                 <div class="d-flex justify-content-between">
@@ -183,36 +195,106 @@
 
 
                             <div class="ms-panel-body">
-                                    <table class="table table-hover thead-primary">
-                                        <thead>
+                                <table class="table table-hover thead-primary">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">Upload Time</th>
+                                            <th scope="col">Thumbnail</th>
+                                            <th scope="col">Delete</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        @foreach ($mainPhoto as $item)
                                             <tr>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>
+                                                    <a href="/images/{{ $item->filename }}">
+                                                        <img src="/images/{{ $item->filename }}" width="100px"
+                                                            height="100px">
+                                                    </a>
+                                                <td>
+                                                    <a href="/system/mainphoto/delete?id={{ $item->id }}"
+                                                        onclick="return confirmDelete()">X</a>
+                                                </td>
+                                        @endforeach
+                                    </tbody>
 
-                                                <th scope="col">Upload Time</th>
-                                                <th scope="col">Thumbnail</th>
-                                                <th scope="col">Delete</th>
 
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <form method ="POST" action ="/system/marquee/update" enctype="multipart/form-data">
+
+                        <div id="myMarqueeModal" class="modal">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                            <div class="modal-content">
+                                <span class="closeMarquee">&times;</span>
+                                @foreach ($marquee as $item)
+                                    <input type="text" for="marquee" class="custom-file-upload" value="{{ $item->text }}" name="text" default=" ">
+                                @endforeach
+                                <button type="submit" class="btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="col-md-12">
+
+
+
+                        <div class="ms-panel">
+                            <div class="ms-panel-header header-mini">
+                                <div class="d-flex justify-content-between">
+                                    <h6>Marquee </h6>
+                                    <button class="btn btn-secondary" id="btnOpenMarqueeModal">Upload</button>
+                                </div>
+                            </div>
+
+
+
+                            <div class="ms-panel-body">
+                                <table class="table table-hover thead-primary">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">Upload Time</th>
+                                            <th scope="col">Thumbnail</th>
+                                            <th scope="col">Update</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        @foreach ($marquee as $item)
+                                            <tr>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>
+                                                    {{ $item->text }}
+                                                </td>
+                                                <td>
+                                                    <a href="/system/mainphoto/delete?id={{ $item->id }}"
+                                                        onclick="return confirmDelete()">X</a>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
+                                        @endforeach
+                                    </tbody>
 
 
-                                            @foreach ($mainPhoto as $item)
-                                                <tr>
-                                                    <td>{{ $item->created_at }}</td>
-                                                    <td>
-                                                        <a href="/images/{{ $item->filename }}">
-                                                            <img src="/images/{{ $item->filename }}" width="100px"
-                                                                height="100px">
-                                                        </a>
-                                                    <td>
-                                                        <a href="/system/mainphoto/delete?id={{ $item->id }}"
-                                                            onclick="return confirmDelete()">X</a>
-                                                    </td>
-                                            @endforeach
-                                        </tbody>
+                                </table>
 
+                            </div>
 
-                                    </table>
+                        </div>
+                    </div>
+
 
     </main>
     <!-- SCRIPTS -->
@@ -274,6 +356,31 @@
 
         function confirmDelete() {
             return confirm('Do you want to delete?');
+        }
+    </script>
+
+    <script>
+        var modalMarquee = document.getElementById('myMarqueeModal');
+        var btnMarquee = document.getElementById('btnOpenMarqueeModal');
+        var spanMarquee = document.getElementsByClassName('closeMarquee')[0];
+
+        btnMarquee.onclick = function() {
+            modalMarquee.style.display = "block";
+        }
+
+        spanMarquee.onclick = function() {
+            modalMarquee.style.display = "none";
+        }
+
+        function closeModal() {
+            alert('準備上傳檔案！');
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
