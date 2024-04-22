@@ -83,7 +83,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom24">Inventory</label>
                             <div class="input-group">
-                                <input type="number" step="0.1" class="form-control" id="validationCustom24" placeholder="01" name="inventory" value="{{$p->inventory}}" required>
+                                <input type="number" step="1" class="form-control" id="validationCustom24" placeholder="01" name="inventory" value="{{$p->inventory}}" required>
                                 <div class="invalid-feedback">
                                     Quantity
                                 </div>

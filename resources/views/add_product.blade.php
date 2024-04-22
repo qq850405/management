@@ -82,7 +82,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom24">Inventory</label>
                             <div class="input-group">
-                                <input type="number" step="0.1" class="form-control" id="validationCustom24" placeholder="01" name="inventory"  value="9999999" required>
+                                <input type="number" step="1" class="form-control" id="validationCustom24" placeholder="01" name="inventory"  value="9999999" required>
                                 <div class="invalid-feedback">
                                     Quantity
                                 </div>
@@ -91,7 +91,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom25">Price</label>
                             <div class="input-group">
-                                <input type="number" step="0.1" class="form-control" id="validationCustom25" placeholder="10" name="price" required>
+                                <input type="number" step="0.01" class="form-control" id="validationCustom25" placeholder="10" name="price" required>
                                 <div class="invalid-feedback">
                                     Price
                                 </div>
