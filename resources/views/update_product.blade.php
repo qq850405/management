@@ -92,7 +92,7 @@
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom25">Price</label>
                             <div class="input-group">
-                                <input type="number" step="0.1" class="form-control" id="validationCustom25" placeholder="10" name="price" value="{{$p->price}}" required>
+                                <input type="number" step="0.01" class="form-control" id="validationCustom25" placeholder="10" name="price" value="{{$p->price}}" required>
                                 <div class="invalid-feedback">
                                     Price
                                 </div>
